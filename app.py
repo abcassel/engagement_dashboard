@@ -49,12 +49,12 @@ st.sidebar.title("📊 Control Panel")
 available_metrics = ['Likes', 'Clicks', 'Shares', 'Comments']
 selected_metrics = st.sidebar.multiselect("Active Interaction Metrics", options=available_metrics, default=available_metrics)
 
-# Clarifying the Calculation Logic with "engagement points"
+# Calculation Logic section with full "Engagement Points" term
 st.sidebar.markdown("### 🔑 Calculation Logic")
 legend_html = "<div class='weight-legend'>"
 for m in selected_metrics:
-    legend_html += f"<strong>{m}:</strong> {WEIGHTS[m]} engagement points<br>"
-legend_html += f"<strong>Reads (SS):</strong> {WEIGHTS['Reads']} engagement points</div>"
+    legend_html += f"<strong>{m}:</strong> {WEIGHTS[m]} Engagement Points<br>"
+legend_html += f"<strong>Reads (SS):</strong> {WEIGHTS['Reads']} Engagement Points</div>"
 st.sidebar.markdown(legend_html, unsafe_allow_html=True)
 
 st.sidebar.markdown("---")
@@ -73,6 +73,7 @@ else:
 # Score Calculation
 def calc_bs(row):
     val = sum(row[m] * WEIGHTS[m] for m in selected_metrics)
+    # Tooltip math string
     math = " + ".join([f"{row[m]}{m[0]}×{WEIGHTS[m]}" for m in selected_metrics])
     return val, math
 
@@ -92,9 +93,9 @@ total_clicks = (df_bs_f['Clicks'].sum() if not df_bs_f.empty else 0) + (df_ss_f[
 k1.metric("Total Likes", f"{total_likes:,}")
 k2.metric("Total Clicks", f"{total_clicks:,}")
 
-# Updated labels for Engagement Points (EP)
-k3.metric("Avg daily Bluesky EP", f"{df_bs_f['Score'].mean():.1f}" if not df_bs_f.empty else "0")
-k4.metric("Avg daily Substack EP", f"{df_ss_f['Score'].mean():.1f}" if not df_ss_f.empty else "0")
+# KPIs using full term "Engagement Points"
+k3.metric("Avg daily Bluesky Engagement Points", f"{df_bs_f['Score'].mean():.1f}" if not df_bs_f.empty else "0")
+k4.metric("Avg daily Substack Engagement Points", f"{df_ss_f['Score'].mean():.1f}" if not df_ss_f.empty else "0")
 
 st.markdown("---")
 
@@ -103,7 +104,7 @@ st.header("🦋 Bluesky Deep Dive")
 
 if not df_bs_f.empty:
     bs_trend = df_bs_f.groupby('Date')[['Score']].sum().reset_index()
-    fig_bs_main = px.line(bs_trend, x='Date', y='Score', title="Overall Weighted Engagement Trend (EP)",
+    fig_bs_main = px.line(bs_trend, x='Date', y='Score', title="Overall Weighted Engagement Trend (Engagement Points)",
                          line_shape='spline')
     fig_bs_main.update_traces(line_color='#1E293B', line_width=4)
     st.plotly_chart(fig_bs_main, use_container_width=True)
@@ -154,7 +155,7 @@ if not df_bs_f.empty:
     fig_rose = px.bar_polar(rose_data, r="Score", theta="Post_Type",
                             color="Score", template="plotly_white",
                             color_continuous_scale=px.colors.sequential.Plasma,
-                            title="Average EP per Category")
+                            title="Average Engagement Points per Category")
     
     fig_rose.update_layout(
         polar=dict(
