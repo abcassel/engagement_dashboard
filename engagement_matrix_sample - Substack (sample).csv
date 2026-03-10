@@ -1,31 +1,31 @@
-Date,Platform,Post_Type,Likes,Clicks,Comments,Shares,Weighted_Engagement_Score
-2026-01-01,Substack,Link with data example,8,18,0,2,52
-2026-01-02,Substack,Link only,3,14,1,2,42
-2026-01-03,Substack,Photo + CTA,6,9,2,1,34
-2026-01-04,Substack,Link with published research,6,21,3,1,61
-2026-01-05,Substack,Article about data use,1,21,3,1,56
-2026-01-06,Substack,Photo without CTA,8,7,1,0,25
-2026-01-07,Substack,Photo without CTA,6,11,2,0,34
-2026-01-08,Substack,Link only,3,20,3,1,56
-2026-01-09,Substack,Link only,1,11,2,1,33
-2026-01-10,Substack,Article about data use,4,5,3,1,27
-2026-01-11,Substack,Photo + CTA,4,24,3,2,69
-2026-01-12,Substack,Link with data example,7,6,3,2,36
-2026-01-13,Substack,Video + CTA,6,25,2,2,70
-2026-01-14,Substack,Video without CTA,5,15,2,1,45
-2026-01-15,Substack,Photo without CTA,4,15,1,0,37
-2026-01-16,Substack,Link with published research,4,6,3,2,33
-2026-01-17,Substack,Photo + CTA,7,12,3,1,44
-2026-01-18,Substack,Photo + CTA,3,9,3,1,34
-2026-01-19,Substack,Photo + CTA,1,17,3,0,44
-2026-01-20,Substack,Video + CTA,4,16,0,2,44
-2026-01-21,Substack,Video + CTA,7,17,0,2,49
-2026-01-22,Substack,Photo + CTA,5,24,2,2,67
-2026-01-23,Substack,Link with published research,2,6,1,1,21
-2026-01-24,Substack,Link with published research,6,9,0,1,28
-2026-01-25,Substack,Link only,6,10,1,0,29
-2026-01-26,Substack,Video + CTA,6,16,0,1,42
-2026-01-27,Substack,Link with data example,3,22,2,2,61
-2026-01-28,Substack,Photo + CTA,5,10,3,0,34
-2026-01-29,Substack,Photo without CTA,7,19,1,1,52
-2026-01-30,Substack,Photo + CTA,5,9,3,1,36
+Date,Reads_per_Post,Total_Reads_Over_Time,Followers_Over_Time,Link_Clicks_in_Post
+2026-01-01,33,33,60,16
+2026-01-02,29,62,60,15
+2026-01-03,31,93,62,7
+2026-01-04,36,129,63,5
+2026-01-05,34,163,63,11
+2026-01-06,22,185,63,8
+2026-01-07,30,215,64,10
+2026-01-08,27,242,65,7
+2026-01-09,21,263,65,14
+2026-01-10,22,285,67,12
+2026-01-11,36,321,68,12
+2026-01-12,29,350,69,9
+2026-01-13,35,385,69,6
+2026-01-14,31,416,70,14
+2026-01-15,21,437,70,9
+2026-01-16,32,469,71,12
+2026-01-17,39,508,73,14
+2026-01-18,44,552,75,14
+2026-01-19,21,573,77,10
+2026-01-20,45,618,78,17
+2026-01-21,21,639,79,9
+2026-01-22,44,683,80,13
+2026-01-23,31,714,80,8
+2026-01-24,43,757,82,14
+2026-01-25,18,775,84,12
+2026-01-26,23,798,86,14
+2026-01-27,28,826,88,16
+2026-01-28,20,846,89,13
+2026-01-29,35,881,90,7
+2026-01-30,35,916,90,6
