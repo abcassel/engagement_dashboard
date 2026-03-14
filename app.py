@@ -49,7 +49,6 @@ st.sidebar.title("📊 Control Panel")
 available_metrics = ['Likes', 'Clicks', 'Shares', 'Comments']
 selected_metrics = st.sidebar.multiselect("Active Interaction Metrics", options=available_metrics, default=available_metrics)
 
-# Calculation Logic section with full "Engagement Points" term
 st.sidebar.markdown("### 🔑 Calculation Logic")
 legend_html = "<div class='weight-legend'>"
 for m in selected_metrics:
@@ -73,7 +72,6 @@ else:
 # Score Calculation
 def calc_bs(row):
     val = sum(row[m] * WEIGHTS[m] for m in selected_metrics)
-    # Tooltip math string
     math = " + ".join([f"{row[m]}{m[0]}×{WEIGHTS[m]}" for m in selected_metrics])
     return val, math
 
@@ -82,20 +80,21 @@ if not df_bs_f.empty:
 if not df_ss_f.empty:
     df_ss_f['Score'] = df_ss_f['Reads_per_Post'] + (df_ss_f['Link_Clicks_in_Post'] if 'Clicks' in selected_metrics else 0)
 
-# 5. Header & KPIs
+# 5. Header & Primary KPIs
 st.title("🛰️ E-DUST engagement matrix")
 st.markdown(f"[🦋 Bluesky](https://bsky.app/profile/cznews.bsky.social)  •  [✉️ Substack](https://criticalzonenews.substack.com/)")
 
-k1, k2, k3, k4 = st.columns(4)
+# New: Total Dataset Downloads right under the title
+c1, c2, c3, c4, c5 = st.columns(5)
+c1.metric("Total Dataset Downloads", "13") # Dummy value as requested
+
 total_likes = df_bs_f['Likes'].sum() if not df_bs_f.empty else 0
 total_clicks = (df_bs_f['Clicks'].sum() if not df_bs_f.empty else 0) + (df_ss_f['Link_Clicks_in_Post'].sum() if not df_ss_f.empty else 0)
 
-k1.metric("Total Likes", f"{total_likes:,}")
-k2.metric("Total Clicks", f"{total_clicks:,}")
-
-# KPIs using full term "Engagement Points"
-k3.metric("Avg daily Bluesky Engagement Points", f"{df_bs_f['Score'].mean():.1f}" if not df_bs_f.empty else "0")
-k4.metric("Avg daily Substack Engagement Points", f"{df_ss_f['Score'].mean():.1f}" if not df_ss_f.empty else "0")
+c2.metric("Total Likes", f"{total_likes:,}")
+c3.metric("Total Clicks", f"{total_clicks:,}")
+c4.metric("Avg daily Bluesky Engagement Points", f"{df_bs_f['Score'].mean():.1f}" if not df_bs_f.empty else "0")
+c5.metric("Avg daily Substack Engagement Points", f"{df_ss_f['Score'].mean():.1f}" if not df_ss_f.empty else "0")
 
 st.markdown("---")
 
