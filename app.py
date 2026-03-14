@@ -91,8 +91,8 @@ c1.metric("Total Dataset Downloads", "13") # Dummy value as requested
 total_likes = df_bs_f['Likes'].sum() if not df_bs_f.empty else 0
 total_clicks = (df_bs_f['Clicks'].sum() if not df_bs_f.empty else 0) + (df_ss_f['Link_Clicks_in_Post'].sum() if not df_ss_f.empty else 0)
 
-c2.metric("Total Likes", f"{total_likes:,}")
-c3.metric("Total Clicks", f"{total_clicks:,}")
+c2.metric("Total Post Likes", f"{total_likes:,}")
+c3.metric("Total Link Clicks", f"{total_clicks:,}")
 c4.metric("Avg daily Bluesky Engagement Points", f"{df_bs_f['Score'].mean():.1f}" if not df_bs_f.empty else "0")
 c5.metric("Avg daily Substack Engagement Points", f"{df_ss_f['Score'].mean():.1f}" if not df_ss_f.empty else "0")
 
